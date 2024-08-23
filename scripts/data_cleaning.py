@@ -70,7 +70,7 @@ def rename_columns(df):
         'UID': 'ID', 'Name': 'Name', 'Nat': 'Nationality', 'Age': 'Age', 'Position': 'Position',
         'Club': 'Club', 'Division': 'Division', 'Av Rat': 'Rating', 'Wage': 'Wage', 'Expires': 'Contract Expiration',
         'Apps': 'Appearances', 'Gls': 'Goals', 'CCC': 'Clear Cut Chances', 'Ch C/90': 'Chances Created/90',
-        'Mins/Gl': 'Minutes per Goal', 'Gls/90': 'Goals/90', 'xG': 'Expected Goals', 'Shot %': 'Shot Accuracy %', 
+        'Mins/Gl': 'Minutes per Goal', 'Gls/90': 'Goals/90', 'xG': 'xG', 'Shot %': 'Shot Accuracy %', 
         'Shot/90': 'Shots/90', 'ShT/90': 'Shots on Target/90', 'Ast': 'Assists', 'Asts/90': 'Assists/90', 
         'K Ps/90': 'Key Passes/90', 'Pas A': 'Passes Attempted', 'Ps A/90': 'Passes Attempted/90', 
         'Ps C/90': 'Passes Completed/90', 'Pas %': 'Pass Completion %', 'Cr A': 'Crosses Attempted', 
