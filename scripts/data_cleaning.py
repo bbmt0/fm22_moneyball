@@ -5,20 +5,16 @@ def clean_data(input_csv, output_csv='../data/processed/cleaned_data.csv'):
     """Nettoie les données et les enregistre dans un nouveau fichier CSV."""
     df = pd.read_csv(input_csv, encoding='utf-8-sig')
 
-
     # Remplacer les "-" par des 0
     df = df.applymap(lambda x: 0 if x == '-' else x)
 
     # Remplacer les "" par des 0
     df = df.applymap(lambda x: 0 if x == '' else x)
 
-
     if 'Mins' in df.columns:
         df['Mins'] = df['Mins'].astype(str)  # Convertir en chaîne pour manipulation
-        df['Mins'] = df['Mins'].str.replace(',', '', regex=False)  # Supprimer les virgules
-        df['Mins'] = df['Mins'].str.replace('.', '', regex=False)  # Supprimer les points
-        df['Mins'] = df['Mins'].astype(int)  # Convertir en int
-    
+        df['Mins'] = df['Mins'].apply(lambda x: convert_minutes(x))
+
     # Nettoyer la colonne "Wage"
     if 'Wage' in df.columns:
         df['Wage'] = df['Wage'].astype(str)  # Convertir en chaîne pour manipulation
@@ -30,7 +26,6 @@ def clean_data(input_csv, output_csv='../data/processed/cleaned_data.csv'):
 
     if 'Name' in df.columns:
         df['Name'] = df['Name'].apply(lambda x: x.split(' - ')[0] if pd.notna(x) and ' - ' in x else x)
-
 
     # Transformer les pourcentages (%) en fractions (0.00)
     df = convert_percentages(df)
@@ -48,6 +43,22 @@ def clean_data(input_csv, output_csv='../data/processed/cleaned_data.csv'):
     df.to_csv(output_csv, index=False, encoding='utf-8-sig')
     print(f"Fichier nettoyé sauvegardé: {output_csv}")
     return df
+
+def convert_minutes(value):
+    """Convertit correctement les minutes, en tenant compte des valeurs décimales."""
+    # Suppression des virgules et des points
+    value = value.replace(',', '')
+    
+    if '.' in value:
+        parts = value.split('.')
+        if len(parts[1]) == 3:  # Cas où c'est un format comme 1.123
+            return int(parts[0] + parts[1])  # Concatène les deux parties
+        elif len(parts[1]) == 2:  # Cas où c'est un format comme 1.12
+            return int(parts[0] + parts[1] + '0')  # Ajoute un 0 à la fin
+        elif len(parts[1]) == 1:  # Cas où c'est un format comme 1.1
+            return int(parts[0] + parts[1] + '00')  # Ajoute deux 0 à la fin
+    else:
+        return int(value)  # Si pas de point, on retourne l'int normalement
 
 def convert_percentages(df):
     """Convertit les colonnes contenant des pourcentages en valeurs décimales."""
@@ -86,4 +97,5 @@ def rename_columns(df):
 if __name__ == "__main__":
     input_csv = '../data/raw/initial_data.csv'
     df = clean_data(input_csv)
-    print(df.columns)
+    print("Minutes mini : ", df['Minutes'].min())
+    print(df.dtypes)
