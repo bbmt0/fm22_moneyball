@@ -56,59 +56,9 @@ if filename:
     df = clean_data()
     print(df.columns) 
     df.to_csv('cleaned_data.csv', index=False, encoding='utf-8-sig')
-
-
-
-    
+  
 else: 
     print('No file selected')
 
 
-#load the centra_midfid.html html file and convert it to a csv file
-
-# Load the data
-#df = pd.read_csv('france_mc.csv')
-
-# # Offensive metrics
-# df['Buts/90'] = round((df['Buts'] / df['Min.']) * 90, 3)
-# df['xG/90'] = round((df['xG'] / df['Min.']) * 90, 3)
-# df['goals_overperf'] = round(df['Buts/90'] - df['xG/90'], 3)
-# df['kp_per_attemptedp'] = round(df['PCl/90'] / df['Ps T/90'], 3)
-# df['passes_efficency'] = round((df['PCl/90'] * df['% passes']) / df['Ps T/90'], 3)
-# df['kp_per_accuracy'] = round(((df['PCl/90'] / df['% passes']) / df['Min.']) * 90, 3)
-
-# # New creativity metrics
-# df['key_passes_90'] = round((df['PCl/90'] * 90), 3)
-# df['chances_created_90'] = round((df['Occ. / 90 min.'] * 90), 3)
-# df['successful_dribbles_90'] = round((df['Drb/90'] * 90), 3)
-
-# Percentiles ranking
-# metrics_to_rank = ['Buts/90', 'xG/90', 'goals_overperf', 'kp_per_attemptedp', 
-#                    'passes_efficency', 'kp_per_accuracy', 'key_passes_90', 
-#                    'chances_created_90', 'successful_dribbles_90']
-
-# for metric in metrics_to_rank:
-#     df[f'{metric}_percentile'] = round(df[metric].rank(pct=True), 3)
-
-# # Define weights for each creativity-related metric
-# weights = {
-#     'key_passes_90_percentile': 0.4,
-#     'chances_created_90_percentile': 0.4,
-# 'successful_dribbles_90_percentile': 0.1,
-#     'passes_efficency_percentile': 0.1
-# }
-
-# # Calculate creativity index
-# df['creativity_index'] = (
-#     df['key_passes_90_percentile'] * weights['key_passes_90_percentile'] +
-#     df['chances_created_90_percentile'] * weights['chances_created_90_percentile'] +
-# df['successful_dribbles_90_percentile'] * weights['successful_dribbles_90_percentile'] +
-#     df['passes_efficency_percentile'] * weights['passes_efficency_percentile']
-# )
-
-# # Sort by creativity index
-# df_sorted = df.sort_values(by='creativity_index', ascending=False)
-
-# # Export to csv
-# df_sorted.to_csv('creative_midfielders_index.csv', index=False)
 
