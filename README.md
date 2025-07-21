@@ -5,14 +5,10 @@ The idea is inspired by the Moneyball mindset.
 
 ---
 
-## Project Structure
+## Notebooks
 
-├── data/ # Raw and processed data (CSV)
-├── notebooks/ # Jupyter notebooks for exploration and visualization
-├── scripts/ # Python scripts for data cleaning, conversion and analysis
-├── requirements.txt # Python dependencies
-├── .gitignore
-└── README.md
+You'll find in the `notebooks/` folder the different study cases and analyses, including
+Each notebook is self-contained and can be run independently after data preparation steps.
 
 ---
 
