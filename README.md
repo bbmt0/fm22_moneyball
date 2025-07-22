@@ -39,6 +39,9 @@ python scripts/data_cleaning.py
 
 ## Example
 [Here](notebooks/04_concrete_case.ipynb) is a 'realistic' case of Moneyball scouting. 
+
+And an example of graph generated: 
+
 ![Center back shortlist](outputs/cb_moneyball_shortlist.png)
 
 ## For more info about Moneyball 
