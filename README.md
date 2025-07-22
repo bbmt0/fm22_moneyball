@@ -37,12 +37,9 @@ python scripts/data_cleaning.py
 
 ---
 
-## Next steps
-- Deeper performances analysis
-- Extending scouting profiles by creating custom calculated index 
-- Add real-life scouting situation: simulate decision on transfermarket based on Moneyball approach 
-
----
+## Example
+[Here](notebooks/04_concrete_case.ipynb) is a 'realistic' case of Moneyball scouting. 
+![Center back shortlist](outputs/cb_moneyball_shortlist.png)
 
 ## For more info about Moneyball 
 
