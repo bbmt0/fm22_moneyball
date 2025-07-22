@@ -42,7 +42,7 @@ python scripts/data_cleaning.py
 
 And an example of graph generated: 
 
-![Center back shortlist](outputs/cb_moneyball_shortlist.png)
+![Center back shortlist](outputs/cb_moneyball_shortlist.jpeg)
 
 ## For more info about Moneyball 
 
